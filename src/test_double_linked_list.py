@@ -1,5 +1,5 @@
-import double_linked_list
 import unittest
+import double_linked_list
 
 
 class TestDoubleLinkedList(unittest.TestCase):
@@ -33,7 +33,8 @@ class TestDoubleLinkedList(unittest.TestCase):
         dll.pop()
         self.assertEqual(dll.last_elem(), TestDoubleLinkedList.names[0])
         dll.pop()
-        dll.pop()  # ERROR (POP): there is nothing to pop!
+
+        self.assertRaises(Exception, dll.pop, dll)  # empty list
 
     def test_unshift_shift(self):
         '''Unshift/shift tests'''
@@ -51,7 +52,8 @@ class TestDoubleLinkedList(unittest.TestCase):
         dll.shift()
         self.assertEqual(dll.first_elem(), TestDoubleLinkedList.names[0])
         dll.shift()
-        dll.shift()  # ERROR (SHIFT): there is nothing to shift!
+
+        self.assertRaises(Exception, dll.shift, dll)  # empty list
 
     def test_len(self):
         '''Len test'''
@@ -74,7 +76,7 @@ class TestDoubleLinkedList(unittest.TestCase):
 
         self.assertEqual(dll.len(), 0)
 
-        dll.pop()  # ERROR (POP): there is nothing to pop!
+        self.assertRaises(Exception, dll.pop, dll)  # empty list
 
         self.assertEqual(dll.len(), 0)
 

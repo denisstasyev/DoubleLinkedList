@@ -30,13 +30,16 @@ class DoubleLinkedList:
 
     def pop(self):
         '''убирает элемент из конца списка'''
-        if self.tail is None:  # length == 0
-            print("ERROR (POP): there is nothing to pop!")  # empty list
-        else:
-            self.tail = self.tail.prev__item
-            if self.tail is not None:
-                self.tail.next__item = None
-            self.length -= 1
+        try:
+            if self.tail is None:  # length == 0
+                raise Exception("There is nothing to pop!")  # empty list
+            else:
+                self.tail = self.tail.prev__item
+                if self.tail is not None:
+                    self.tail.next__item = None
+                self.length -= 1
+        except Exception as error:
+            print("Caught this error: " + error.args[0])
 
     def unshift(self, elem):
         '''добавляет элемент в начало списка'''
@@ -53,13 +56,16 @@ class DoubleLinkedList:
 
     def shift(self):
         '''убирает элемент из начала списка'''
-        if self.head is None:  # length == 0
-            print("ERROR (SHIFT): there is nothing to shift!")  # empty list
-        else:
-            self.head = self.head.next__item
-            if self.head is not None:
-                self.head.prev__item = None
-            self.length -= 1
+        try:
+            if self.head is None:  # length == 0
+                raise Exception("There is nothing to shift!")  # empty list
+            else:
+                self.head = self.head.next__item
+                if self.head is not None:
+                    self.head.prev__item = None
+                self.length -= 1
+        except Exception as error:
+            print("Caught this error: " + error.args[0])
 
     def len(self):
         '''возвращает длину списка'''
