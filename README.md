@@ -26,6 +26,6 @@
 
 Чтобы запустить проект необходимо:
 ```bash
-git clone https://github.com/denisstasyev/Web
+git clone https://github.com/denisstasyev/DoubleLinkedList
 python3 -m unittest tests/test_double_linked_list.py
 ```
